@@ -227,7 +227,11 @@ if st.button("💰 Predict Car Price"):
     })
 
 
-    prediction = float(model.predict(input_df)[0])
+    import numpy as np
+
+    prediction = model.predict(input_df)
+
+    prediction = np.array(prediction).flatten()[0]
 
     st.markdown(
             f"""
